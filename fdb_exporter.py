@@ -18,9 +18,8 @@ from prometheus_client.core import GaugeMetricFamily, CounterMetricFamily, REGIS
 fdb.api_version(100)
 
 
-@fdb.transactional
-def read_metrics(tr):
-    return tr.get("\xff\xff/status/json") 
+def read_metrics(db):
+    return db["\xff\xff/status/json"]
 
 
 class FdbCollector(object):
