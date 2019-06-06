@@ -76,7 +76,7 @@ class FdbCollector(object):
             'Latency reads seconds',
             value=data['cluster']['latency_probe']['read_seconds'])
 
- 	    yield GaugeMetricFamily('fdb_coordinators_quorum_state', 'Quorum status',
+        yield GaugeMetricFamily('fdb_coordinators_quorum_state', 'Quorum status',
             value=1 if data['client']['coordinators']['quorum_reachable'] else 0)
 
         yield GaugeMetricFamily('fdb_database_status_health_state', 'Database health status',
